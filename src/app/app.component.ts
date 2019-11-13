@@ -43,7 +43,7 @@ export class AppComponent {
     if (this.food_counter >= 3) {
       this.show_answer = true;
       for (var i = 0; i < this.foods.length; i++) {
-        if (this.foods[i] != this.receipt[i]) {
+        if (this.foods[i].name != this.receipt[i].name) {
           this.answer = false;
         }
       }
