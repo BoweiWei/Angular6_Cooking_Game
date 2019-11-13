@@ -37,14 +37,22 @@ export class AppComponent {
     this.enternew = false;
     this.show_answer = false;
     this.answer = true;
+    this.food_counter = 0;
+    console.log(this.show_answer);
   }
 
   check() {
     if (this.food_counter >= 3) {
       this.show_answer = true;
-      for (var i = 0; i < this.foods.length; i++) {
-        if (this.foods[i].name != this.receipt[i].name) {
-          this.answer = false;
+      if (this.food_counter != this.receipt.length) {
+        this.answer = false;
+      } else {
+        for (var i = 0; i < this.foods.length; i++) {
+          if (this.foods[i].name != this.receipt[i].name) {
+            this.answer = false;
+          } else {
+            this.answer = true;
+          }
         }
       }
     }
