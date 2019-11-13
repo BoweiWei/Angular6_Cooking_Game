@@ -12,7 +12,7 @@ export class AppComponent {
   food_counter = 0;
   foods: Food[] = [];
   new_food = new Food("")
-  receipt: Food[] = [new Food('meat'), new Food('apple'), new Food('tomato')].sort();
+  receipt: Food[] = [new Food('meat'), new Food('apple'), new Food('tomato')].sort((a, b) => a.name.localeCompare(b.name));
   answer = true;
   show_answer = false;
 
@@ -25,7 +25,7 @@ export class AppComponent {
   // save the new food into food
   submit() {
     this.foods.push(this.new_food);
-    this.foods.sort();
+    this.foods.sort((a, b) => a.name.localeCompare(b.name));
     this.enternew = true;
     console.log(this.foods);
     this.food_counter ++;
@@ -49,6 +49,7 @@ export class AppComponent {
       } else {
         for (var i = 0; i < this.foods.length; i++) {
           if (this.foods[i].name != this.receipt[i].name) {
+            console.log("correct")
             this.answer = false;
           } else {
             this.answer = true;
